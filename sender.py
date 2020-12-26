@@ -4,35 +4,39 @@ import random
 from scapy.layers.inet import IP, TCP
 
 
-# def ip_address():
-#     """ Get Destination IP Address. """
-#     host = input("Enter Destination Address: ")
-#     return host
-#
-#
-# def port_number():
-#     """ Get Destination Port Number. """
-#     port = input("Enter Port Number: ")
-#     return port
+def ip_address():
+    """ Get Destination IP Address. """
+    host = input("Enter Destination Address: ")
+    return host
+
+
+def port_number():
+    """ Get Destination Port Number. """
+    port = input("Enter Port Number: ")
+    return port
 
 
 # IP Address and Port Number
 print('-' * 100)
-host = input("Enter Destination Address: ")
-port = input("Enter Port Number: ")
+host = ip_address()
+port = port_number()
 while True:
     try:
         # Parameters
         message = input("Enter your message: ")
         # Change IP Address
         if 'ip' in message:
-            host = input("Enter Destination Address: ")
+            host = ip_address()
+            print(111)
             continue
         elif 'port' in message:
-            port = input("Enter Port Number: ")
+            port = port_number()
+            print(11)
             continue
         # TCP Packet
+        print(1)
         ip = IP(dst=host)
+        print(1)
         tcp = TCP(sport=random.randint(10000, 65000), dport=int(port)) / message
         # Stack the packets
         packet = ip / tcp
