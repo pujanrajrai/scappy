@@ -22,7 +22,7 @@ ip_address = input("Enter IP address to listen: ")
 port = input("Enter port to listen: ")
 print('-' * 100)
 # Status
-print("Listening on interface '{}' in port {} for '{}'...".format(interface, port, ip_address))
+print(f"Listening on interface '{interface}' in port {port} for '{ip_address}'...")
 print('-' * 100)
 # Sniff
 sniffed = sniff(iface=interface, store=False, prn=analyze)
